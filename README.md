@@ -70,6 +70,6 @@ The solution reflects a focus on maintainability, extensibility, and reliability
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/MaxDutton/lendflow-nytimes.git
+    git clone https://github.com/maxvrdev/lendflow-nytimes
     cd lendflow-nytimes
     ```
