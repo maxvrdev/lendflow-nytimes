@@ -2,11 +2,39 @@
 
 namespace Tests\Feature;
 
+use App\Http\Requests\NytBestSellersRequest;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 class NytBestSellersTest extends TestCase
 {
+    public function test_valid_request_data()
+    {
+        $request = new NytBestSellersRequest();
+
+        $validator = Validator::make([
+            'author' => 'Stephen King',
+            'isbn' => ['1476727651', '9781476727653'],
+            'title' => 'The Shining',
+            'offset' => 10,
+        ], $request->rules());
+
+        $this->assertTrue($validator->passes());
+    }
+
+    public function test_invalid_isbn()
+    {
+        $request = new NytBestSellersRequest();
+
+        $validator = Validator::make([
+            'isbn' => ['97812345678971234'], // Invalid (too long)
+        ], $request->rules());
+
+        $this->assertFalse($validator->passes());
+        $this->assertArrayHasKey('isbn.0', $validator->errors()->toArray());
+    }
+
     public function test_best_sellers_endpoint_returns_data()
     {
         // Mock the NYT API response
