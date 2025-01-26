@@ -68,8 +68,49 @@ The solution reflects a focus on maintainability, extensibility, and reliability
 
 ## Setup Instructions
 
-1. **Clone the Repository**
+Follow these steps to set up the project:
+
+1. **Clone the Repository**:
+
     ```bash
     git clone https://github.com/maxvrdev/lendflow-nytimes
     cd lendflow-nytimes
     ```
+
+2. **Configure Environment Variables**:
+
+    - Copy the example environment file:
+        ```bash
+        cp .env.example .env
+        ```
+    - Open the `.env` file and update the `NYT_API_KEY` property with your New York Times API key.
+
+3. **Generate the Application Key**:
+
+    ```bash
+    php artisan key:generate
+    ```
+
+4. **Install JavaScript Dependencies**:
+
+    ```bash
+    yarn
+    ```
+
+5. **Install PHP Dependencies**:
+
+    ```bash
+    composer install
+    ```
+
+6. **Serve the Application**:
+
+    ```bash
+    php artisan serve
+    ```
+
+7. **Access the Application**:
+    - Open your browser and navigate to:
+        ```
+        http://127.0.0.1:8000
+        ```
