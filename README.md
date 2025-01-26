@@ -58,7 +58,6 @@ The solution reflects a focus on maintainability, extensibility, and reliability
 5. **Testing**  
    Comprehensive test suite:
 
-    - Unit tests for services.
     - Feature tests for API endpoints.
     - Mocked HTTP client for offline and credential-free testing.
 
