@@ -71,6 +71,6 @@ The solution reflects a focus on maintainability, extensibility, and reliability
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/MaxDutton/lendflow-nyt-api.git
+    git clone https://github.com/MaxDutton/lendflow-nytimes.git
     cd lendflow-nyt-api
     ```
