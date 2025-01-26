@@ -2,22 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\NytBestSellersRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
 
 class NytBestSellersController extends Controller
 {
-    public function index(Request $request)
+    public function index(NytBestSellersRequest $request)
     {
-        // Validate incoming request parameters
-        $validated = $request->validate([
-            'author' => 'nullable|string',
-            'isbn' => 'nullable|array',
-            'isbn.*' => 'string',
-            'title' => 'nullable|string',
-            'offset' => 'nullable|integer|min:0',
-        ]);
+        $validated = $request->validated();
 
         // Build the query parameters
         $query = array_merge($validated, [
